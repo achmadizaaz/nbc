@@ -65,34 +65,66 @@
                     <span>Dashboard</span>
                 </a>
             </li>
+            <li class="sidebar-title">Data Master</li>
             <li class="sidebar-item">
                 <a href="{{ route('attribute') }}" class='sidebar-link'>
-                    <i class="bi bi-grid-fill"></i>
+                    <i class="bi bi-bookmarks"></i>
                     <span>Attributes</span>
                 </a>
             </li>
             <li
                 class="sidebar-item">
                 <a href="{{ route('class') }}" class='sidebar-link'>
-                    <i class="bi bi-grid-fill"></i>
+                    <i class="bi bi-archive"></i>
                     <span>Clases</span>
                 </a>
             </li>
             <li
                 class="sidebar-item">
                 <a href="{{ route('training') }}" class='sidebar-link'>
-                    <i class="bi bi-grid-fill"></i>
+                    <i class="bi bi-clipboard-check-fill"></i>
                     <span>Training Data</span>
                 </a>
             </li>
             <li
                 class="sidebar-item">
                 <a href="#" class='sidebar-link'>
-                    <i class="bi bi-grid-fill"></i>
+                    <i class="bi bi-clipboard-check-fill"></i>
                     <span>Testing Data</span>
                 </a>
             </li>
-            
+
+            <li class="sidebar-title">Action</li>
+            <li
+                class="sidebar-item">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-calculator"></i>
+                    <span>Training Calculation</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-calculator"></i>
+                    <span>Accuracy Calculation</span>
+                </a>
+            </li>
+            <li
+                class="sidebar-item">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-calculator"></i>
+                    <span>Prediction</span>
+                </a>
+            </li>
+
+            <li class="sidebar-title">Option</li>
+            <li
+                class="sidebar-item">
+                <a href="#" class='sidebar-link'>
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
