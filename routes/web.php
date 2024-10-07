@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttributeController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingCalculationController;
 use App\Http\Controllers\TrainingDataController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,5 +42,10 @@ Route::controller(TrainingDataController::class)->prefix('training-data')->group
     Route::get('/{id}', 'show')->name('training.show');
     Route::put('/{id}/update', 'update')->name('training.update');
     Route::delete('/{id}/delete', 'destroy')->name('training.delete');
+});
+
+Route::controller(TrainingCalculationController::class)->prefix('calculation-training')->group(function(){
+    Route::get('/', 'index')->name('calculation.training');
+    Route::post('/', 'store')->name('calculation.training.store');
 });
 require __DIR__.'/auth.php';

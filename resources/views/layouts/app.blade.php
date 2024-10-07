@@ -97,7 +97,7 @@
             <li class="sidebar-title">Action</li>
             <li
                 class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="{{ route('calculation.training') }}" class='sidebar-link'>
                     <i class="bi bi-calculator"></i>
                     <span>Training Calculation</span>
                 </a>
