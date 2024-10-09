@@ -5,16 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AttributeProbability extends Model
+class AttributeValue extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['class_label_id', 'attribute_id', 'attribute_value', 'conditional_probability'];
-
-    public function class()
-    {
-        return $this->belongsTo(ClassLabel::class, 'class_label_id');
-    }
+    protected $fillable = ['attribute_id', 'value'];
 
     public function attribute()
     {

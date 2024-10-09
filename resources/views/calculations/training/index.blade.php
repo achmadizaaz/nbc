@@ -76,7 +76,50 @@
 
 <div class="card">
     <div class="card-body">
-        <h5>Table: Prior Probability Attribute</h5>
+        <h5>Probability Attributes</h5>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+               <tr>
+                    <th rowspan="2">Frequency Table</th>
+                    <th colspan="2" class="text-center">Class</th>
+               </tr>
+               <tr class="text-center">
+                    @foreach ($classes as $class)
+                        <th>{{ $class->name }}</th>
+                    @endforeach
+               </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>sadas</td>
+                    <td>10</td>
+                    <td>12</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        
+        @foreach ($classes as $class)
+            <table class="table table-striped">
+                <thead>
+                    <th>{{ $class->name }}</th>
+                </thead>
+                <tbody>
+                    {{dd($prior_attributes->where('class_label_id', $class->id)->orderBy('attribute_id')->get())}}
+                    @foreach ($prior_attributes->where('class_label_id', $class->id)->orderBy('attribute_id')->get() as $prior_attribute)
+                        <tr>
+                            <td>{{ $prior_attribute->attribute_value }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endforeach
+        
     </div>
 </div>
 @endsection

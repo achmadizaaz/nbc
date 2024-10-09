@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('class_label_id');
             $table->foreignId('attribute_id');
             $table->string('attribute_value');
+            $table->integer('total_data');
+            $table->integer('total_class');
             $table->decimal('conditional_probability', 10,5);
             $table->timestamps();
             $table->foreign('class_label_id')->on('class_labels')->references('id')->onDelete('cascade');

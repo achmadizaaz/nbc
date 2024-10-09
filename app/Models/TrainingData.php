@@ -11,7 +11,7 @@ class TrainingData extends Model
     protected $fillable = ['name', 'class_label_id'];
 
 
-    public function attribute()
+    public function dataAttribute()
     {
         return $this->hasMany(TrainingDataAttribute::class, 'training_data_id', 'id');
     }

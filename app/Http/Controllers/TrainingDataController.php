@@ -25,8 +25,8 @@ class TrainingDataController extends Controller
     public function index()
     {
         return view('training_data.index', [
-            'attributes' => $this->attribute->all(),
-            'training' => $this->model->paginate(10),
+            'attributes' => $this->attribute->get(),
+            'training' => $this->model->paginate(15),
         ]);
     }
 

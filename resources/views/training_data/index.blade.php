@@ -42,7 +42,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->name }}</td>
-                                @foreach ($data->attribute as $att)
+                                @foreach ($data->dataAttribute as $att)
                                     <td>{{ $att->attribute_value }}</td>
                                 @endforeach
                                 <td>{{ $data->class->name }}</td>
