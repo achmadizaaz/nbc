@@ -12,7 +12,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Calculate Accuracy
+                    Recalculate Accuracy
                 </button>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     Show Calculate Accuracy
@@ -48,6 +48,12 @@
         <h5>Total Testing : {{ $countTesting }} / Data</h5>
         <small class="fst-italic">Detailed testing data can be seen in the <a href="{{ route('testing') }}"><b>Testing Data</b></a> menu</small>
     </div>
+</div>
+
+<div class="text-center mt-4">
+    <h4>Accuracy</h4><br>
+    <h1>99.879%</h1><br>
+    <h4>Similarity Percentage</h4>
 </div>
 @endsection
 
