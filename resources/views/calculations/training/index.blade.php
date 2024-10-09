@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('title', ' Calculation Training Data')
+@section('title', 'Probability Calculation Training Data')
 
 @section('content')
 <div class="page-title mb-3">
     <div class="row">
         <div class="col-12 col-md-6 order-md-1 order-last">
-            <h3>Calculation Training</h3>
+            <h3>Probability Calculation</h3>
         </div>
         <div class="col-12 col-md-6 order-md-2 order-first">
             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -42,7 +42,14 @@
 
 <div class="card">
     <div class="card-body">
-        <h5 class="mb-3">Table: Prior Probability Class</h5>
+        <h5>Total Training : {{ $countTraining }} / Data</h5>
+        <small class="fst-italic">Detailed training data can be seen in the <a href="{{ route('training') }}"><b>Training Data</b></a> menu</small>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="mb-3">Probability Class</h5>
         <table class="table table-striped">
             <thead>
                 <th>No</th>
@@ -79,48 +86,42 @@
         <h5>Probability Attributes</h5>
     </div>
 </div>
-
-<div class="card">
-    <div class="card-body">
-        <table class="table table-striped">
-            <thead>
-               <tr>
-                    <th rowspan="2">Frequency Table</th>
-                    <th colspan="2" class="text-center">Class</th>
-               </tr>
-               <tr class="text-center">
-                    @foreach ($classes as $class)
-                        <th>{{ $class->name }}</th>
-                    @endforeach
-               </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>sadas</td>
-                    <td>10</td>
-                    <td>12</td>
-                </tr>
-            </tbody>
-        </table>
-        <hr>
-        
-        @foreach ($classes as $class)
-            <table class="table table-striped">
-                <thead>
-                    <th>{{ $class->name }}</th>
-                </thead>
-                <tbody>
-                    {{dd($prior_attributes->where('class_label_id', $class->id)->orderBy('attribute_id')->get())}}
-                    @foreach ($prior_attributes->where('class_label_id', $class->id)->orderBy('attribute_id')->get() as $prior_attribute)
-                        <tr>
-                            <td>{{ $prior_attribute->attribute_value }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+    <div class="row">
+        @foreach ($prior_classes as $pc)
+        @php
+            $priorAttributes = $prior_attributes->where('class_label_id', $pc->class_label_id)->orderBy('attribute_id')->get()
+        @endphp
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header border-bottom">
+                        <h6>Class name</h6> 
+                        <div>
+                            {{ $pc->class->name }} ( <span class="fst-italic">{{ $pc->prior_probability }}</span> )
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <th>Attribute Name</th>
+                                <th>Value</th>
+                                {{-- <th>{{ $class->name }}</th> --}}
+                                <th>Cond. Probability</th>
+                            </thead>
+                            <tbody>
+                                {{-- {{dd($prior_attributes->where('class_label_id', $class->id)->orderBy('attribute_id')->get())}} --}}
+                                @foreach ( $priorAttributes as $prior_attribute)
+                                <tr>
+                                    <td>{{ $prior_attribute->attribute->name }}</td>
+                                    <td>{{ $prior_attribute->attribute_value }}</td>
+                                    <td>{{ $prior_attribute->conditional_probability }}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         @endforeach
-        
     </div>
-</div>
 @endsection
 

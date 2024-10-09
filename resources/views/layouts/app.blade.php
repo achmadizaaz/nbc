@@ -88,7 +88,7 @@
             </li>
             <li
                 class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="{{ route('testing') }}" class='sidebar-link'>
                     <i class="bi bi-clipboard-check-fill"></i>
                     <span>Testing Data</span>
                 </a>
@@ -99,12 +99,12 @@
                 class="sidebar-item">
                 <a href="{{ route('calculation.training') }}" class='sidebar-link'>
                     <i class="bi bi-calculator"></i>
-                    <span>Training Calculation</span>
+                    <span>Probability Calculation</span>
                 </a>
             </li>
             <li
                 class="sidebar-item">
-                <a href="#" class='sidebar-link'>
+                <a href="{{ route('accuracy') }}" class='sidebar-link'>
                     <i class="bi bi-calculator"></i>
                     <span>Accuracy Calculation</span>
                 </a>

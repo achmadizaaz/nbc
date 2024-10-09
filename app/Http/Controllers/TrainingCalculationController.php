@@ -30,8 +30,8 @@ class TrainingCalculationController extends Controller
         $prior_classes = $this->classProbability->all();
         $classes = $this->class->all();
         $prior_attributes = $this->attributeProbability;
-        // dd($prior_attributes);
-        return view('calculations.training.index', compact('classes','prior_classes', 'prior_attributes'));
+        $countTraining = count($this->training->all());
+        return view('calculations.training.index', compact('classes','prior_classes', 'prior_attributes', 'countTraining'));
     }
 
     public function store(Request $request)
